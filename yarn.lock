@@ -2011,6 +2011,16 @@
     tslib "^2.3.0"
     typescript "~5.4.2"
 
+"@nx/express@20.1.1":
+  version "20.1.1"
+  resolved "https://registry.yarnpkg.com/@nx/express/-/express-20.1.1.tgz#26d5a0871fd9ffc0a3393f78cefa19b5183c84d6"
+  integrity sha512-GlX1wMlJZxtJPAdInxrbQyygy4wiSzuGd1cN+QHiKs2AxtH3qCzQQVZd6RI3hDH1QJpL+OgI8faQaXOOOgnzOg==
+  dependencies:
+    "@nx/devkit" "20.1.1"
+    "@nx/js" "20.1.1"
+    "@nx/node" "20.1.1"
+    tslib "^2.3.0"
+
 "@nx/jest@20.1.1":
   version "20.1.1"
   resolved "https://registry.yarnpkg.com/@nx/jest/-/jest-20.1.1.tgz#de1d1301fe683857407f349a1816d6f170350ece"
@@ -2066,6 +2076,17 @@
     source-map-support "0.5.19"
     ts-node "10.9.1"
     tsconfig-paths "^4.1.2"
+    tslib "^2.3.0"
+
+"@nx/node@20.1.1":
+  version "20.1.1"
+  resolved "https://registry.yarnpkg.com/@nx/node/-/node-20.1.1.tgz#ef70d5bef159ddb792dee1bef90cd20eb8b8aa0a"
+  integrity sha512-SC1sWV2A7K9VcR4LU3EiqFCWupLS4c91/5WYBKy8Dx+kqEaupAf3hLffXpS8iUXShm5+cjLAMwya/mrI0EfG1w==
+  dependencies:
+    "@nx/devkit" "20.1.1"
+    "@nx/eslint" "20.1.1"
+    "@nx/jest" "20.1.1"
+    "@nx/js" "20.1.1"
     tslib "^2.3.0"
 
 "@nx/nx-darwin-arm64@20.1.1":
@@ -5635,7 +5656,7 @@ expect@^29.0.0, expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-express@^4.19.2:
+express@^4.18.1, express@^4.19.2:
   version "4.21.1"
   resolved "https://registry.yarnpkg.com/express/-/express-4.21.1.tgz#9dae5dda832f16b4eec941a4e44aa89ec481b281"
   integrity sha512-YSFlK1Ee0/GC8QaO91tHcDxJiE/X4FbpAyQWkxAvG6AXCuR65YzK8ua6D9hvi/TzUfZMpc+BwuM1IPw8fmQBiQ==
