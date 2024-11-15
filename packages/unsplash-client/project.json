@@ -1,0 +1,19 @@
+{
+  "name": "unsplash-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/unsplash-client/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/unsplash-client",
+        "main": "packages/unsplash-client/src/index.ts",
+        "tsConfig": "packages/unsplash-client/tsconfig.lib.json",
+        "assets": ["packages/unsplash-client/*.md"]
+      }
+    }
+  }
+}
