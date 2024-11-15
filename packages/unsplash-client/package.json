@@ -2,7 +2,9 @@
   "name": "@lumeo/unsplash-client",
   "version": "0.0.1",
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "axios": "^1.7.7",
+    "@lumeo/shared-types": "0.0.1"
   },
   "type": "commonjs",
   "main": "./src/index.js",
