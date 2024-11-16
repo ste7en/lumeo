@@ -53,10 +53,13 @@ export interface UnsplashSearchResponse {
   results: UnsplashPhoto[];
 }
 
-export interface UnsplashSearchParams {
-  query: string;
+export interface PaginationParams {
   page?: number;
   per_page?: number;
+}
+
+export interface UnsplashSearchParams extends PaginationParams {
+  query: string;
 }
 
 export interface UnsplashError {
