@@ -8,7 +8,9 @@
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": ["build"],
+      "dependsOn": [
+        "build"
+      ],
       "options": {
         "buildTarget": "lumeo-core:build",
         "runBuildTargetDependencies": false
@@ -20,6 +22,11 @@
         "production": {
           "buildTarget": "lumeo-core:build:production"
         }
+      }
+    },
+    "test": {
+      "options": {
+        "passWithNoTests": true
       }
     }
   }
