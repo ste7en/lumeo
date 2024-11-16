@@ -1,0 +1,17 @@
+{
+  "name": "lumeo-core-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "implicitDependencies": ["lumeo-core"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{e2eProjectRoot}"],
+      "options": {
+        "jestConfig": "apps/lumeo-core-e2e/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "dependsOn": ["lumeo-core:build"]
+    }
+  }
+}
