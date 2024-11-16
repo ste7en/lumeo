@@ -1,4 +1,4 @@
-import { PaginationParams, UnsplashError, UnsplashSearchParams, UnsplashSearchResponse } from '@lumeo/shared-types';
+import { PaginationParams, UnsplashError, UnsplashPhoto, UnsplashSearchParams, UnsplashSearchResponse } from '@lumeo/shared-types';
 import { UnsplashClient, UnsplashClientError } from '@lumeo/unsplash-client';
 import express from 'express';
 import cors from 'cors';
@@ -10,9 +10,9 @@ const client = new UnsplashClient(process.env.UNSPLASH_ACCESS_KEY);
 
 app.use(cors());
 
-app.get<PaginationParams>('/api/photos', async (req, res) => {
+app.get<undefined, UnsplashPhoto[] | UnsplashError, undefined, PaginationParams>('/api/photos', async (req, res) => {
   try {
-    const data = await client.listPhotos(req.params.page, req.params.per_page);
+    const data = await client.listPhotos(req.query.page, req.query.per_page);
     return res.json(data);
   } catch (error) {
     if (error instanceof UnsplashClientError) {
