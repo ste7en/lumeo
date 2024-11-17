@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, MessageCircle } from 'lucide-react';
+import { Heart, MessageCircle, Trash2 } from 'lucide-react';
 import { UnsplashPhoto } from '@lumeo/shared-types';
 import { useFavorites } from '../store/useFavorites';
 import { useComments } from '../store/useComments';
@@ -10,8 +10,8 @@ interface ImageDetailsProps {
 
 export const ImageDetails: React.FC<ImageDetailsProps> = ({ image }) => {
   const [comment, setComment] = React.useState('');
-  const {addFavorite, removeFavorite, isFavorite} = useFavorites();
-  const {addComment, getCommentsByPhotoId} = useComments();
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const { addComment, removeComment, getCommentsByPhotoId } = useComments();
   const favorite = isFavorite(image.id);
 
   const handleAddComment = (e: React.FormEvent) => {
@@ -20,6 +20,10 @@ export const ImageDetails: React.FC<ImageDetailsProps> = ({ image }) => {
       addComment(image.id, comment);
       setComment('');
     }
+  };
+
+  const handleRemoveComment = (id: string) => {
+    removeComment(id, image.id);
   };
 
   const toggleFavorite = () => {
@@ -90,10 +94,18 @@ export const ImageDetails: React.FC<ImageDetailsProps> = ({ image }) => {
               <div key={comment.id} className="flex space-x-3">
                 <div className="flex-1 bg-gray-50 rounded-lg p-3">
                   <div className="flex items-center justify-between mb-1">
-                    <span className="font-medium">You</span>
-                    <span className="text-sm text-gray-500">
-                      {new Date(comment.createdAt).toLocaleString()}
-                    </span>
+                    <div className='space-x-4'>
+                      <span className="font-medium">You</span>
+                      <span className="text-sm text-gray-500">
+                        {new Date(comment.createdAt).toLocaleString()}
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => handleRemoveComment(comment.id)}
+                      className="text-gray-600 hover:text-red-500"
+                    >
+                      <Trash2 className="w-5 h-5" />
+                    </button>
                   </div>
                   <p className="text-gray-700">{comment.text}</p>
                 </div>
