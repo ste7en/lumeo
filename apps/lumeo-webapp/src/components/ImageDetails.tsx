@@ -1,12 +1,23 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
 import { UnsplashPhoto } from '@lumeo/shared-types';
+import { useFavorites } from '../store/useFavorites';
 
 interface ImageDetailsProps {
   image: UnsplashPhoto;
 }
 
 export const ImageDetails: React.FC<ImageDetailsProps> = ({ image }) => {
+  const {addFavorite, removeFavorite, isFavorite} = useFavorites();
+  const favorite = isFavorite(image.id);
+
+  const toggleFavorite = () => {
+    if (favorite) {
+      removeFavorite(image.id);
+    } else {
+      addFavorite(image);
+    }
+  };
 
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
@@ -32,12 +43,15 @@ export const ImageDetails: React.FC<ImageDetailsProps> = ({ image }) => {
 
           <div className="flex space-x-4">
             <button
+              onClick={toggleFavorite}
               className="flex items-center space-x-1 text-gray-600 hover:text-red-500"
             >
               <Heart
-                className={`w-6 h-6`}
+                className={`w-6 h-6
+                  ${favorite ? 'fill-red-500 text-red-500' : ''
+                }`}
               />
-              <span>{image.likes}</span>
+              <span>{favorite ? image.likes + 1 : image.likes}</span>
             </button>
           </div>
         </div>
