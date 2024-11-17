@@ -8,6 +8,7 @@ export interface UnsplashPhoto {
   blur_hash: string;
   alt_description: string | null;
   description: string | null;
+  likes: number;
   urls: {
     raw: string;
     full: string;
@@ -44,6 +45,11 @@ export interface UnsplashPhoto {
       likes: string;
       portfolio: string;
     };
+    profile_image: {
+      small?: string;
+      medium?: string;
+      large?: string;
+    } | null;
   };
 }
 
