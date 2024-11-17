@@ -4,6 +4,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Camera, Heart } from 'lucide-react';
 import { HomePage } from './pages/HomePage';
 import { ImagePage } from './pages/ImagePage';
+import { FavoritesPage } from './pages/FavoritesPage';
 
 const queryClient = new QueryClient();
 
@@ -21,7 +22,7 @@ function App() {
                 </Link>
                 <Link
                   to="/favorites"
-                  className="flex items-center space-x-1 text-gray-600 hover:text-blue-500"
+                  className="flex items-center space-x-1 text-gray-600 hover:text-red-600"
                 >
                   <Heart className="w-6 h-6" />
                   <span>Favorites</span>
@@ -33,6 +34,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/image/:id" element={<ImagePage />} />
+            <Route path="/favorites" element={<FavoritesPage />} />
           </Routes>
         </div>
       </BrowserRouter>
