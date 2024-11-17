@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "postinstall": "husky"
+    "postinstall": "husky",
+    "core:dev": "nx run lumeo-core:serve",
+    "webapp:dev": "nx run lumeo-webapp:serve",
+    "dev": "nx run-many --target=serve --projects=lumeo-core,lumeo-webapp"
   },
   "private": true,
   "dependencies": {
