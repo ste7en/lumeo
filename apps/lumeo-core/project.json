@@ -8,9 +8,7 @@
     "serve": {
       "executor": "@nx/js:node",
       "defaultConfiguration": "development",
-      "dependsOn": [
-        "build"
-      ],
+      "dependsOn": ["build"],
       "options": {
         "buildTarget": "lumeo-core:build",
         "runBuildTargetDependencies": false
@@ -27,6 +25,27 @@
     "test": {
       "options": {
         "passWithNoTests": true
+      }
+    },
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "main": "apps/lumeo-core/src/main.ts",
+        "outputPath": "dist/apps/lumeo-core",
+        "outputFileName": "main.js",
+        "tsConfig": "apps/lumeo-core/tsconfig.app.json",
+        "format": ["cjs"],
+        "assets": []
+      },
+      "configurations": {
+        "development": {
+          "minify": false
+        },
+        "production": {
+          "minify": true
+        }
       }
     }
   }

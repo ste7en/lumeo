@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "buildCommand": "yarn nx run-many -t build",
+  "outputDirectory": "dist/apps/lumeo-webapp",
+  "installCommand": "yarn install",
+  "devCommand": "yarn nx run-many -t serve",
+  "builds": [
+    {
+      "src": "dist/apps/lumeo-core/**/*.cjs",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/apps/lumeo-webapp/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "dist/apps/lumeo-webapp/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "dist/apps/lumeo-core/main.cjs"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "dist/apps/lumeo-webapp/$1"
+    }
+  ]
+}
