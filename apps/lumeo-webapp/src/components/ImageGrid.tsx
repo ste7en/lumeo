@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { MouseEventHandler, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { Heart } from 'lucide-react';
 import { UnsplashPhoto } from '@lumeo/shared-types';
+import { useFavorites } from '../store/useFavorites';
 
 interface ImageGridProps {
   images?: UnsplashPhoto[];
@@ -8,6 +10,17 @@ interface ImageGridProps {
 }
 
 export const ImageGrid: React.FC<ImageGridProps> = ({ images, isLoading }) => {
+  const { isFavorite, addFavorite, removeFavorite } = useFavorites();
+
+  const toggleFavorite = useCallback((image: UnsplashPhoto): MouseEventHandler<HTMLButtonElement> => (e) => {
+    e.preventDefault();
+    if (isFavorite(image.id)) {
+      removeFavorite(image.id);
+    } else {
+      addFavorite(image);
+    }
+  }, [addFavorite, isFavorite, removeFavorite]);
+
   if (isLoading) {
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 animate-pulse">
@@ -40,6 +53,16 @@ export const ImageGrid: React.FC<ImageGridProps> = ({ images, isLoading }) => {
                 <div className="flex items-center space-x-2">
                   <span className="font-medium">{image.user?.name}</span>
                 </div>
+                <button
+                  onClick={toggleFavorite(image)}
+                  className="p-2 rounded-lg hover:bg-gray-400 hover:bg-opacity-50"
+                >
+                  <Heart
+                    className={`w-6 h-6 ${
+                      isFavorite(image.id) ? 'fill-red-500 text-red-500' : 'text-white'
+                    }`}
+                  />
+                </button>
               </div>
             </div>
           </div>
