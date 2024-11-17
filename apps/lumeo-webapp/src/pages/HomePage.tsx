@@ -5,7 +5,7 @@ import { Pagination } from '../components/Pagination';
 import { usePhotosQuery } from '../hooks/usePhotosQuery';
 import { useSearchPhotos } from '../hooks/useSearchPhotosQuery';
 
-const ITEMS_PER_PAGE = 20;
+const ITEMS_PER_PAGE = 18;
 
 export const HomePage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
