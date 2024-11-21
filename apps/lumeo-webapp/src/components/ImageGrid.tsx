@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Heart } from 'lucide-react';
 import { UnsplashPhoto } from '@lumeo/shared-types';
 import { useFavorites } from '../store/useFavorites';
+import ImageGridItem from './ImageGrid/ImageGridItem';
 
 interface ImageGridProps {
   images?: UnsplashPhoto[];
@@ -42,11 +43,7 @@ export const ImageGrid: React.FC<ImageGridProps> = ({ images, isLoading }) => {
           key={image.id}
           className="group relative overflow-hidden rounded-lg"
         >
-          <img
-            src={image.urls.regular}
-            alt={image.alt_description || 'Unsplash image'}
-            className="w-full aspect-[4/3] object-cover transform transition-transform duration-300 group-hover:scale-105"
-          />
+          <ImageGridItem image={image} />
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300">
             <div className="absolute bottom-0 left-0 right-0 p-4 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
               <div className="flex items-center justify-between">
