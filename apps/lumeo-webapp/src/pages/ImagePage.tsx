@@ -11,7 +11,7 @@ export const ImagePage: React.FC = () => {
   if (isLoading) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <div className="animate-pulse">
+        <div className="animate-pulse max-w-4xl mx-auto">
           <div className="aspect-video bg-gray-200 rounded-lg mb-4" />
           <div className="h-8 bg-gray-200 rounded w-1/4 mb-4" />
           <div className="h-4 bg-gray-200 rounded w-3/4" />
