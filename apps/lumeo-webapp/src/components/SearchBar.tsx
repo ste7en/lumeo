@@ -26,7 +26,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
         <button
           type="submit"
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-1.5 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 px-4 py-1.5 hover:bg-purple-on-light text-white rounded-md bg-purple-strong transition-colors"
         >
           Search
         </button>
