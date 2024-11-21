@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply text-gray-900 antialiased;
+    @apply text-purple-on-light antialiased;
   }
 }
 
