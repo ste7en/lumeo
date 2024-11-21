@@ -12,23 +12,22 @@ const ImageGridItem: React.FC<ImageGridItemProps> = ({ image }) => {
     setLoaded(true);
   }
   return (
-    <div className="relative w-full aspect-[4/3]">
+    <div className="relative w-full">
       <img
         src={image.urls.regular}
         alt={image.alt_description || 'Unsplash image'}
-        className={"absolute top-0 left-0 w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"}
+        className={"w-full h-auto object-cover transform transition-transform duration-300 group-hover:scale-105"}
         onLoad={onLoad}
       />
       {!loaded && (
         <Blurhash
           hash={image.blur_hash}
-          width={'100%'}
-          height={'100%'}
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          width={image.width}
+          className="w-full h-auto object-cover"
         />
       )}
     </div>
   );
 };
 
-export default ImageGridItem
+export default ImageGridItem;
